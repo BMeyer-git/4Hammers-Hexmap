@@ -1,0 +1,272 @@
+:root {
+  --background-grad: linear-gradient(45deg, #1a2f3f, #7094ce);
+  --background: rgb(0, 0, 0,0.6);
+  --backmain: hsl(0, 0%, 10%);
+  --color-text: hsl(0, 0%, 85%);
+  --s: 25px;  /* size  */
+  --m: 1px;    /* margin */
+  --f: calc(var(--s) * 1.748 + 4 * var(--m) - 1px); 
+  --bm: 0.2885;
+  --bs: 1.1547;
+}
+/* 1.1547 */
+/* 0.2885 */
+/* calc(1.732 * var(--s) + 4 * var(--m)  - 1px);  */
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.container {
+  font-size: 0; /* gets rid of white space */
+}
+
+.bar {
+  width: 6px;
+  height: 30px; 
+  color: green;
+  border: 1px solid black;
+  background-color: green;
+
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backmain);
+  color: var(--color-text);
+  align-items: center;
+  margin: auto;
+}
+
+.main {  
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px; 
+  margin: 0px; 
+  border-radius: 5px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2em;
+  margin: .4em;
+  font-family: fantasy;
+  font-weight: lighter;
+}
+
+.botMenu {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+
+.movement {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  padding: .2em .5em;
+  cursor: pointer;
+}
+
+#load{
+  background-color: #7094ce;
+  width: 1px;
+  height: 5px;
+}
+#loadContainer{
+  height: 7px;
+  width: 500px;
+  border: 1px solid white;
+}
+
+
+.icon {
+  width: 30px;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: #7094ce;
+}
+
+/* background: repeating-linear-gradient(#e66465 0 calc(var(--f) - 3px), #9198e5 0 var(--f)); */
+.hexcontainer img { 
+  position: relative;
+  width: calc(var(--s) * var(--bs));
+  height: var(--s);
+ 
+  margin: var(--m);
+  -webkit-clip-path: polygon(6% 25%, 6% 75%, 50% 96%, 96% 75%, 96% 25%, 50% 6%); 
+  clip-path: polygon(6% 25%, 6% 75%, 50% 96%, 96% 75%, 96% 25%, 50% 6%);
+  margin-bottom: calc(var(--m) - var(--s) * var(--bm)); /* 0.2886 some negative margin to create overlap */
+  margin-right: calc(var(--s)/1.68);
+  transition: all .1s ease-out;
+  z-index: 99;
+}
+/*  object-fit: cover; */
+
+.hexcontainer img:hover {
+  opacity: .5;
+}
+
+.hexMain {
+  display:flex;
+  flex-wrap: nowrap;
+  padding: 0px; 
+  margin: 0px;
+}
+
+.hexContainer {
+  font-size: 0; /*disable white space between inline block element */
+  width: 100%; 
+}
+
+.hexContainer::before {
+  content: "";
+  width: calc(var(--s)/2 + var(--m));
+  float: left;
+  height: 120%;
+  shape-outside: repeating-linear-gradient(     
+                   #0000 0 calc(var(--f) - 3px),      
+                   #000  0 var(--f));
+}
+
+.hex {
+  position: relative;
+  z-index: 100;
+}
+
+.hex:hover {
+  opacity: .5;
+}
+
+.botMenu {
+  width: 100%;
+  height: 100px;
+}
+
+.botMenu div {
+  padding: 0 2em;
+}
+
+.hexWater {
+  width: var(--s);
+  margin: var(--m);
+  height: calc(var(--s)*var(--bs)); 
+  display: inline-block;
+  font-size:initial;
+  clip-path: polygon(6% 25%, 6% 75%, 50% 96%, 96% 75%, 96% 25%, 50% 6%);
+  background: rgb(57, 84, 134);
+  margin-bottom: calc(var(--m) - var(--s)*var(--bm));
+}
+
+.hexLand {
+  width: var(--s);
+  margin: var(--m);
+  height: calc(var(--s)*var(--bs)); 
+  display: inline-block;
+  font-size:initial;
+  clip-path: polygon(6% 25%, 6% 75%, 50% 96%, 96% 75%, 96% 25%, 50% 6%);
+  background: rgb(0, 78, 0);
+  margin-bottom: calc(var(--m) - var(--s)*var(--bm)); 
+  content: url(../img/foresthex.png);
+}
+
+.hexMtn {
+  width: var(--s);
+  margin: var(--m);
+  height: calc(var(--s)*var(--bs)); 
+  display: inline-block;
+  font-size:initial;
+  clip-path: polygon(6% 25%, 6% 75%, 50% 96%, 96% 75%, 96% 25%, 50% 6%);
+  background: rgb(145, 113, 53);
+  margin-bottom: calc(var(--m) - var(--s)*var(--bm)); 
+}
+
+.hexGold {
+  width: var(--s);
+  margin: var(--m);
+  height: calc(var(--s)*var(--bs)); 
+  display: inline-block;
+  font-size:initial;
+  clip-path: polygon(6% 25%, 6% 75%, 50% 96%, 96% 75%, 96% 25%, 50% 6%);
+  background: rgb(160, 136, 0);
+  margin-bottom: calc(var(--m) - var(--s)*var(--bm)); 
+}
+
+.hexLandMan {
+  width: var(--s);
+  margin: var(--m);
+  height: calc(var(--s)*var(--bs)); 
+  display: inline-block;
+  font-size:initial;
+  clip-path: polygon(5% 25%, 5% 75%, 50% 96%, 96% 75%, 96% 25%, 50% 4%);
+  background: rgb(0, 78, 0);
+  margin-bottom: calc(var(--m) - var(--s)*var(--bm));
+  content: url("map/img/horse.png");
+  
+}
+/* adding popup to hexes */
+[data-tooltip] {
+  display: block;
+  position: relative;
+  z-index: 5;
+  color: black;
+}
+
+[data-tooltip]:hover::before {
+  display: block;
+  content: attr(data-tooltip);
+  position: absolute;
+  z-index: 400;
+  left: 50%;
+  transform: translate(-90%, calc(-100% - 2rem));
+  background-color: #000000;
+  color: white;
+  padding: .5em;
+  border-radius: .3em;
+  width: max-content;
+  max-width: 400%;
+  text-align: center;
+}
+
+/* for mobile formatting */
+@media screen and (max-width: 900px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    margin: 0;
+  }
+
+  .hud {
+    position: relative; 
+    padding: 0px; 
+    margin: 0px; 
+    border-radius: 0px;
+  }
+  
+  .hexMain {
+    cursor: unset;
+  }
+  .botMenu {
+    width: 100%;
+  }
+}
+
